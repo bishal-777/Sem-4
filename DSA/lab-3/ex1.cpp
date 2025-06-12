@@ -2,7 +2,7 @@
 
 #define MAXSIZE 5
 
-int cqueue[MAXSIZE];
+int queue[MAXSIZE];
 int front = 0;
 int rear = -1;
 
@@ -75,7 +75,7 @@ void enqueue(int num){
         cout<<"Queue Overflow"<<endl;
     else{
         rear++;
-        cqueue[rear] = num;
+        queue[rear] = num;
         cout<<"Successfully added "<<num<<" in queue"<<endl;
     }
 }
@@ -84,7 +84,7 @@ void dequeue(){
     if (rear < front)
         cout<<"Queue is empty"<<endl;
     else{
-        int temp = cqueue[front];
+        int temp = queue[front];
         cout<<"Successfully removed "<<temp<<" from your queue"<<endl;
         front ++;
     }
@@ -97,7 +97,7 @@ void display(){
     else{
         cout<<"The elements of your queue are as follows:"<<endl;
         for (int i = front; i <= rear;i++)
-            cout<<cqueue[i]<<"\t";
+            cout<<queue[i]<<"\t";
     }
 }
 
