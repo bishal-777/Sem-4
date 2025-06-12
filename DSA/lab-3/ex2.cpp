@@ -2,7 +2,7 @@
 
 #define MAXSIZE 5
 
-int queue[MAXSIZE];
+int cqueue[MAXSIZE];
 int front = -1;
 int rear = -1;
 
@@ -87,7 +87,7 @@ void enqueue(int data) {
         front = 0;
     }
     rear = (rear + 1) % MAXSIZE;
-    queue[rear] = data;
+    cqueue[rear] = data;
     cout << data << " pushed to queue." << endl;
 }
 
@@ -96,7 +96,7 @@ void dequeue() {
         cout << "Queue Underflow! Queue is empty." << endl;
         return;
     }
-    cout << queue[front] << " popped from queue." << endl;
+    cout << cqueue[front] << " popped from queue." << endl;
     if (front == rear) {
         // Queue has only one element, reset after dequeue
         front = -1;
@@ -114,7 +114,7 @@ void display() {
     cout << "Elements in queue: ";
     int i = front;
     while (true) {
-        cout << queue[i] << " ";
+        cout << cqueue[i] << " ";
         if (i == rear) break;
         i = (i + 1) % MAXSIZE;
     }
@@ -125,6 +125,6 @@ void peek() {
     if (isEmpty()) {
         cout << "Queue is empty. No element to peek." << endl;
     } else {
-        cout << "Front element is: " << queue[front] << endl;
+        cout << "Front element is: " << cqueue[front] << endl;
     }
 }
